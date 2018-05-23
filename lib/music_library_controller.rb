@@ -66,4 +66,8 @@ class MusicLibraryController
       list.each_with_index {|song, index| puts "#{index + 1}. #{song.artist.name} - #{song.name}"}.sort_by! {|song| song.name}
     end
   end
+
+  def play_song
+    puts "Which song number would you like to play?"
+    chosen_song = gets.chomp.to_i
 end
