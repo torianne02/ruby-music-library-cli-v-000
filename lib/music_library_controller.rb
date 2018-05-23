@@ -73,7 +73,7 @@ class MusicLibraryController
     songs = Song.all.sort_by! {|song| song.name}
     num_of_songs = songs.length
     song = songs[chosen_song - 1]
-    if songs.between?(1, num_of_songs)
+    if chosen_song.between?(1, num_of_songs)
       puts "Playing #{song.name} by #{song.artist.name}"
     end
   end
