@@ -57,4 +57,13 @@ class MusicLibraryController
       list.each_with_index {|song, index| puts "#{index + 1}. #{song.name} - #{song.genre.name}"}.sort_by! {|song| song.name}
     end
   end
+
+  def list_songs_by_genre
+    puts "Please enter the name of a genre:"
+    chosen_genre = gets.chomp
+    if Genre.find_by_name(chosen_genre) != nil
+      list = Genre.find_by_name(chosen_genre).songs.sort_by! {|song| song.name}
+      list.each_with_index {|song, index| puts "#{index + 1}. #{song.name} - #{song.genre.name}"}.sort_by! {|song| song.name}
+    end
+  end
 end
