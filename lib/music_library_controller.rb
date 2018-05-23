@@ -54,7 +54,7 @@ class MusicLibraryController
     chosen_artist = gets.chomp
     if Artist.find_by_name(chosen_artist) != nil
       list = Artist.find_by_name(chosen_artist).songs.sort_by! {|song| song.name}
-      list.each_with_index {|song, index| puts "#{index + 1}. #{song.name} = #{song.genre.name}"}
+      list.each_with_index {|song, index| puts "#{index + 1}. #{song.name} = #{song.genre.name}"}.sort_by! {|song| song.name}
     end
   end
 end
